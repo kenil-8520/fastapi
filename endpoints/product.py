@@ -107,5 +107,4 @@ async def read_product(product_id: str):
 async def read_all_products():
     session = database.get_db_session(engine)
     data = session.query(Product).all()
-    print(data)
     return Response(data, 200, "Products retrieved successfully.", False)
