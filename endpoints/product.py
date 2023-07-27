@@ -100,7 +100,10 @@ async def read_product(product_id: str):
         print("Error", ex)
         response_message = "Product Not found"
     error = False
-    return Response(data, 200, response_message, error)
+    if data == None:
+        return Response(data, 404, response_message, error)
+    else:
+        return Response(data, 200, response_message, error)
 
 
 @router.get("/")
